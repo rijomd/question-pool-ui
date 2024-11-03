@@ -1,0 +1,1 @@
+export const dashBoard = "/home/dashBoardData";
