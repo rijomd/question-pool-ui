@@ -1,8 +1,11 @@
 import React from 'react';
+import { AddBookForm } from '../components/AddBookForm';
 
 const DashBoard = () => {
     return (
-        <div>DashBoard</div>
+        <div>DashBoard
+            <AddBookForm />
+        </div>
     )
 }
 

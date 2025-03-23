@@ -8,14 +8,32 @@ export const InputBox = ({
         <input
             type={type}
             placeholder={placeholder}
-            value={value}
+            value={value || ""}
             name={name}
             onChange={(e) =>{ 
                type === "file" ? onChange(name, e.target.files[0]) : onChange(name, e.target.value);
             }}
             disabled={disabled}
-            className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
+            className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent ${ type !== "file" ? 'py-3 px-5' : 'p-0'}  font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary`}
         />
+    )
+}
+
+export const FileBox = ({
+     placeholder, name, value, onChange = () => { }, disabled
+}) => {
+    return (
+        <>
+        <input
+            type={'file'}
+            placeholder={placeholder}
+            name={name}
+            onChange={(e) =>{ onChange(name, e.target.files[0]) }}
+            disabled={disabled}
+            className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent p-0 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary`}
+            />
+            <p className='text-center'>{value}</p>
+        </>
     )
 }
 
@@ -230,7 +248,7 @@ export const Button = ({ label, icon, onClick, className }) => {
 
     return (
         <button className={`inline-flex items-center justify-center gap-2.5 rounded-md border
-         border-primary py-1 px-4 text-center font-medium text-primary hover:bg-opacity-90 lg:px-4 xl:px-4 `+ className}
+         border-primary py-1 px-4 text-center font-medium text-primary hover:bg-opacity-90 lg:px-4 xl:px-4 dark:bg-black `+ className}
             onClick={onClick}
         >
             <span>{icon}</span>
