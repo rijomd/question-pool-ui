@@ -45,7 +45,7 @@ export const Form = ({ onSave = () => { }, init, jobCompo = [] }) => {
                     <SelectBox label="level" options={levels} name='level' onChange={handleChange} value={formData['level']} />
                 </div>
                 <div className="xs:col-span-1">
-                    <InputBox name='answerOption' onChange={handleChange} value={formData['answerOption']} placeholder='Answer Option' />
+                    <InputBox name='answerOption' onChange={handleChange} value={formData['answerOption']} placeholder='Answer Option :A/B/C ...' />
                 </div>
 
                 <div className="xs:col-span-1 md:col-span-3">

@@ -10,27 +10,27 @@ export const InputBox = ({
             placeholder={placeholder}
             value={value || ""}
             name={name}
-            onChange={(e) =>{ 
-               type === "file" ? onChange(name, e.target.files[0]) : onChange(name, e.target.value);
+            onChange={(e) => {
+                type === "file" ? onChange(name, e.target.files[0]) : onChange(name, e.target.value);
             }}
             disabled={disabled}
-            className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent ${ type !== "file" ? 'py-3 px-5' : 'p-0'}  font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary`}
+            className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent ${type !== "file" ? 'py-3 px-5' : 'p-0'}  font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary`}
         />
     )
 }
 
 export const FileBox = ({
-     placeholder, name, value, onChange = () => { }, disabled
+    placeholder, name, value, onChange = () => { }, disabled
 }) => {
     return (
         <>
-        <input
-            type={'file'}
-            placeholder={placeholder}
-            name={name}
-            onChange={(e) =>{ onChange(name, e.target.files[0]) }}
-            disabled={disabled}
-            className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent p-0 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary`}
+            <input
+                type={'file'}
+                placeholder={placeholder}
+                name={name}
+                onChange={(e) => { onChange(name, e.target.files[0]) }}
+                disabled={disabled}
+                className={`w-full rounded-lg border-[1.5px] border-stroke bg-transparent p-0 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary`}
             />
             <p className='text-center'>{value}</p>
         </>

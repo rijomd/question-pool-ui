@@ -14,6 +14,7 @@ import { Form } from "../components/Form";
 import {
   addQuestionAction,
   bulkInsertQuestionAction,
+  downloadTemplate,
   fetchQuestionList,
   updateQuestionAction,
 } from "../reducer/QuestionActions";
@@ -31,7 +32,7 @@ const question = {
   level: "",
 };
 
-const QuestionList = ({}) => {
+const QuestionList = ({ }) => {
   const { QuestionList, error, message } = useSelector(
     (state) => state.question
   );
@@ -109,6 +110,13 @@ const QuestionList = ({}) => {
             label="Add"
             onClick={() => {
               setIsOpen(true);
+            }}
+            className="mr-1"
+          />
+          <Button
+            label="Bulk Template"
+            onClick={() => {
+              downloadTemplate();
             }}
             className="mr-1"
           />

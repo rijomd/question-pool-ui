@@ -27,7 +27,7 @@ export const Modal = ({ isOpen, title = "TItle", children, onClose = () => { } }
                 <div
                     id="modal"
                     ref={outerDivRef}
-                    className={`left-0 flex items-center justify-center h-screen w-full fixed top-0 bg-black bg-opacity-60  ${isOpen ? "" : "hidden"}`}
+                    className={`left-0 flex items-center justify-center h-screen w-full top-0 bg-black bg-opacity-60 absolute ${isOpen ? "" : "hidden"}`}
                     onClick={handleClickOutside}
                 >
                     <div ref={innerDivRef} className="bg-white dark:bg-boxdark max-w-4xl w-full rounded-md">

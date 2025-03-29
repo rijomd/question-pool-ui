@@ -1,4 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import * as XLSX from "xlsx";
+import { saveAs } from "file-saver";
 
 import {
   QuestionList,
@@ -119,3 +121,20 @@ export const bulkInsertQuestionAction = createAsyncThunk(
     }
   }
 );
+
+
+export const downloadTemplate = () => {
+  const templateData = [
+    ["question_name", "answerOption", "question_answer", "mcq_options", "type", "created_by", "job_id", "level"],
+    ["Sample Question six?", "C", "Correct Answer 6", "Option 1, Option 2, Option 3, Option 4", "MCQ", 1, 1, 2],
+    ["Sample Question seven ?", "D", "Correct Answer 7", "Option 1, Option 2, Option 3, Option 4", "MCQ", 1, 1, 3],
+  ];
+
+  const ws = XLSX.utils.aoa_to_sheet(templateData);
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, "Template");
+
+  const excelBuffer = XLSX.write(wb, { bookType: "xlsx", type: "array" });
+  const data = new Blob([excelBuffer], { type: "application/octet-stream" });
+  saveAs(data, "MCQ_Template.xlsx");
+};

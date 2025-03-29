@@ -1,8 +1,17 @@
 # React + Vite
+Ui :- 
+baseurl     :- http://localhost:5173;
+start       :- npm run dev;
+wrk flow    :- login -> redirect home.
+    admin       :- master screen :- 
+                    create jobs. 
+                :- question screen:- 
+                    create questions (single and bulk insertion).
+                    create question pool.
+                :  masters screen :- 
+                    create user list.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+backend:- 
+baseurl     :- http://localhost:8086/api;
+/activate   :- activate user role (HR/MANAGER);
+/login      :- login with credentials
